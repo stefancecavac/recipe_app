@@ -1,12 +1,11 @@
-
-
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
 
     return(
         <header>
             <p>search:</p>
-            <h2>Recipe App</h2>
+            <Link to='/'>RECIPE APP</Link>
             <p>User info:</p>
         </header>
     )

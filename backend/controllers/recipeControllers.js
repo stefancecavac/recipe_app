@@ -12,6 +12,23 @@ const getRecipes = async(req , res) => {
     }
 }
 
+const getSingleRecipe = async(req , res) => {
+    const {id} = req.params
+
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(400).json({error: 'not a valid id'})
+    }
+    try{
+        const recipe = await Recipe.findOne({_id : id})
+        if(!recipe){
+            return res.status(400).json({error: 'no such recipe'}) 
+        }
+        res.status(200).json(recipe)
+    }
+    catch(error){
+        res.status(500).json({error: error.message})
+    }
+}
 
 const postRecipe = async(req, res) => {
         const {title ,description ,ingredients ,instructions ,cookingTime ,difficulty ,mealType} = req.body
@@ -57,4 +74,4 @@ const deleteRecipe = async(req, res) => {
     }
 } 
 
-module.exports = {getRecipes ,postRecipe ,deleteRecipe}
+module.exports = {getRecipes ,postRecipe ,deleteRecipe ,getSingleRecipe}

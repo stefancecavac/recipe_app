@@ -12,6 +12,11 @@ export const recipeReducer = (state, action) => {
             return {
                 recipes: action.payload
             }
+
+        case "SET_SINGLE_RECIPE":
+            return {
+                singleRecipe: action.payload
+            }
         case 'POST_RECIPE':
             return {
                 recipes: [action.payload, ...state.recipes]
@@ -28,11 +33,11 @@ export const recipeReducer = (state, action) => {
 
 export const RecipeContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(recipeReducer, {
-        recipes: null
+        recipes: []
     })
 
     return (
-        <RecipeContext.Provider value={{...state, dispatch}}>
+        <RecipeContext.Provider value={{ ...state, dispatch }}>
             {children}
         </RecipeContext.Provider>
     )

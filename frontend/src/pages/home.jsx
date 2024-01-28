@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useRecipeContext } from '../hooks/useRecipeHook'
-
+import {Link} from 'react-router-dom'
 
 import RecipeCard from '../components/recipeCard'
 import FilterCard from '../components/filterCard'
@@ -28,7 +28,10 @@ const Home = () => {
             <FilterCard></FilterCard>
             <div className="content">
                 {recipes && recipes.map((recipe) => (
-                    <RecipeCard key={recipe._id} recipe={recipe}></RecipeCard>
+                    
+                    <Link key={recipe._id} to={`/recipe-details/${recipe._id}`}>
+                    <RecipeCard recipe={recipe}></RecipeCard>
+                    </Link>
                 ))}
             </div>
         </div>
