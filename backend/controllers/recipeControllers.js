@@ -12,6 +12,7 @@ const getRecipes = async(req , res) => {
     }
 }
 
+
 const postRecipe = async(req, res) => {
         const {title ,description ,ingredients ,instructions ,cookingTime ,difficulty ,mealType} = req.body
 

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body{
+    margin:0;
+    padding:0;
+    background-color: rgb(237, 236, 236);
+    font-family: 'Poppins', sans-serif;
+}
+
+header{
+    background-color:white ;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin:20px; 
+    box-shadow: 1px 1px 5px;
+}
+
+
+.filter{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.snack{
+    background-color: rgb(112, 112, 239); 
+   padding:2%;
+    color:white;
+    font-size: 2em;
+    border-radius: 20px;
+    
+}
+.breakfast{
+    background-color: rgb(66, 243, 66);
+    padding:2%;
+    color:white;
+    font-size: 2em;
+    border-radius: 20px;
+}
+.lunch{
+    background-color: yellow;
+    padding:2%;
+    color:white;
+    font-size: 2em;
+    border-radius: 20px;
+}
+.dinner{
+    background-color: rgb(255, 70, 70);
+    padding:2%;
+    color:white;
+    font-size: 2em;
+    border-radius: 20px;
+}
+.dessert{
+    background-color: rgb(253, 146, 164);
+    padding:2%;
+    color:white;
+    font-size: 2em;
+    border-radius: 20px;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+    margin:20px;
+}
+
+.recipeCard{
+    height: 300px;
+    background-color: white;
+    border-radius: 20px;
+    margin:20px;
+    box-shadow: 1px 1px 5px;
+}
+
+.recipeCard img{
+    height:200px;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding:0;
+}
+.recipeCard h3{
+    margin: 0;
+    padding-left: 20px;   
+}
+.recipeCardDetails{
+    color:grey;
+    font-size: 0.9em;
+    display: flex;
+    justify-content:space-between;
+    padding-left: 20px;  
+    padding-right: 20px;  
+}
+.recipeCardDetails p:nth-child(2) {
+    border-radius: 10px;
+    background-color: greenyellow;
+    padding:5px;
+ }
+
+
