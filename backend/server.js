@@ -8,10 +8,14 @@ const mongoose = require('mongoose')
 
 const recipeRouter = require('./routes/recipeRouter')
 
+const userRouter = require('./routes/userRouter')
+
 app.use(cors())
 app.use(express.json())
 
 app.use('/api/recipes',recipeRouter )
+app.use('/api/user',userRouter )
+
 
 
 

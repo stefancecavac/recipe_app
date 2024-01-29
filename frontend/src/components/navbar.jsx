@@ -6,7 +6,11 @@ const Navbar = () => {
         <header>
             <p>search:</p>
             <Link to='/'>RECIPE APP</Link>
-            <p>User info:</p>
+
+            <Link to='/login'>LOGIN</Link>
+            <Link to='/register'>register</Link>
+
+            
         </header>
     )
 }

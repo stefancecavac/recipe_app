@@ -12,7 +12,9 @@ const Home = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://localhost:4000/api/recipes')
+            const response = await fetch('http://localhost:4000/api/recipes' , {
+                
+            })
             const json = await response.json()
 
             if (response.ok) {
