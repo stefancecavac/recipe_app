@@ -34,7 +34,7 @@ const postRecipe = async(req, res) => {
         const {title ,description ,ingredients ,instructions ,cookingTime ,difficulty ,mealType} = req.body
 
         if(!title || !description ||!ingredients ||!instructions ||!cookingTime ||!difficulty ||!mealType ){
-            return res.status(400).json({error: 'please fill out all fields'})
+            return res.status(400).json({message: 'please fill out all fields'})
         }
         try{
             const recipe = await Recipe.create({

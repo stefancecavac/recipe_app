@@ -3,11 +3,16 @@ import { useRecipeContext } from '../hooks/useRecipeHook';
 import { useUserContext } from '../hooks/useUserHook';
 
 
+
 const AddRecipe = () => {
-    const {dispatch} = useRecipeContext()
-    const {user} = useUserContext()
+    const { dispatch } = useRecipeContext()
+    const { user } = useUserContext()
+
+
 
     const [error, setError] = useState(null);
+    const [ok, setOk] = useState(null)
+
     const [currentPage, setCurrentPage] = useState(1);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -20,11 +25,11 @@ const AddRecipe = () => {
 
 
 
-    const postRecipe = async(e) => {
+    const postRecipe = async (e) => {
         e.preventDefault()
-        const response = await fetch('http://localhost:4000/api/recipes' ,{
+        const response = await fetch('http://localhost:4000/api/recipes', {
             method: 'POST',
-            body: JSON.stringify({ title, description, cookingTime, difficulty, mealType , ingredients ,instructions}),
+            body: JSON.stringify({ title, description, cookingTime, difficulty, mealType, ingredients, instructions }),
             headers: {
                 'Authorization': `Bearer ${user.token}`,
                 'Content-Type': 'application/json',
@@ -32,15 +37,19 @@ const AddRecipe = () => {
         })
         const json = await response.json()
 
-        if(response.ok){
-            dispatch({type: 'POST_RECIPE' , payload:json})
+        if (response.ok) {
+            dispatch({ type: 'POST_RECIPE', payload: json })
+            setOk('succesfully added')
+
+
         }
-     else {
-        setError(json.message);
-    }
+        else {
+            setError(json.message);
+            console.log(json.error)
+        }
 
     }
- 
+
 
     const handleIngredientChange = (index, property, value) => {
         const updatedIngredients = [...ingredients];
@@ -48,11 +57,22 @@ const AddRecipe = () => {
         setIngredients(updatedIngredients);
     };
 
+    const deleteIngredient = (index) => {
+        const updatedIngredients = [...ingredients];
+        updatedIngredients.splice(index, 1);
+        setIngredients(updatedIngredients);
+    }
+
     const handleInstructionChange = (index, property, value) => {
         const updatedInstructions = [...instructions];
         updatedInstructions[index][property] = value;
         setInstructions(updatedInstructions);
     };
+    const deleteInstruction = (index) => {
+        const updatedInstructions = [...instructions];
+        updatedInstructions.splice(index, 1)
+        setInstructions(updatedInstructions);
+    }
 
     const addIngredient = () => {
         setIngredients([...ingredients, { name: '', quantity: '' }]);
@@ -71,7 +91,7 @@ const AddRecipe = () => {
         setCurrentPage(currentPage - 1)
     }
 
-   
+
 
     return (
         <div className="addRecipe">
@@ -107,8 +127,15 @@ const AddRecipe = () => {
 
                             <div className='midingridients'>
                                 <h2>Ingredients:</h2>
+                                <button type="button" onClick={addIngredient}>
+                                    New Ingredient
+                                </button>
                                 {ingredients.map((ingredient, index) => (
                                     <div key={index}>
+                                        <button type="button" onClick={() => deleteIngredient(index)}>
+                                            -
+                                        </button>
+
                                         <input
                                             type="text"
                                             placeholder="Name"
@@ -123,16 +150,20 @@ const AddRecipe = () => {
                                         />
                                     </div>
                                 ))}
-                                <button type="button" onClick={addIngredient}>
-                                    Add Ingredient
-                                </button>
+
                             </div>
 
 
                             <div className='midinstructions'>
                                 <h2>Instructions:</h2>
+                                <button type="button" onClick={addInstruction}>
+                                    Add Instruction
+                                </button>
                                 {instructions.map((instruction, index) => (
                                     <div key={index}>
+                                        <button type="button" onClick={() => deleteInstruction(index)}>
+                                            -
+                                        </button>
                                         <input
                                             type="text"
                                             placeholder={`Step ${instruction.step}`}
@@ -141,9 +172,7 @@ const AddRecipe = () => {
                                         />
                                     </div>
                                 ))}
-                                <button type="button" onClick={addInstruction}>
-                                    Add Instruction
-                                </button>
+
 
                             </div>
                         </div>
@@ -192,13 +221,17 @@ const AddRecipe = () => {
                             <button type="submit">
                                 Submit
                             </button>
+
                         </div>
                     </div>
                 )}
+                {error && <div className='error'>{error}</div>}
+                {ok && <div className='ok'>{ok}</div>}
             </form>
-            {error && <div className='error'>{error}</div>}
+
+
         </div>
-    
+
     )
 }
 

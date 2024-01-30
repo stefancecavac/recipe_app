@@ -23,8 +23,8 @@ const AsideBar = () => {
 
                 </div>
                 <div className='useractions'>
-                    
-                   <Link to='/add-recipe'></Link>
+                    <Link to='/'>Home</Link>
+                   <Link to='/add-recipe'>New recipe</Link>
                    
                  
                    <span className='liked'>
