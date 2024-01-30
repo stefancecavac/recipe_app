@@ -1,18 +1,23 @@
 import { useState } from "react"
 import {UseRegister} from '../hooks/useRegisterHook'
 
+
+
 const Register = () => {
   
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const {register , error} = UseRegister()
 
+    
     const handleRegister = async(e) => {
         e.preventDefault()
         await register(email, password)
+        
     }
 
     return (
+        <div className="register">
 
         <form onSubmit={handleRegister}>
             <h2>register</h2>
@@ -27,11 +32,12 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}></input>
                 
-                <button > login</button>
+                <button > register</button>
 
                 {error && <div className="error">{error}</div>}
 
         </form>
+        </div>
     )
 }
 

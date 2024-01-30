@@ -1,15 +1,19 @@
-
+import { MdOutlineBakeryDining } from "react-icons/md";
+import { LuSoup } from "react-icons/lu";
+import { MdOutlineBrunchDining } from "react-icons/md";
+import { RiCake3Line } from "react-icons/ri";
+import { LuSandwich } from "react-icons/lu";
 
 
 const FilterCard = () => {
 
     return (
         <div className="filter">
-            <p className="snack">snack</p>
-            <p className="breakfast">breakfast</p>
-            <p className="lunch">lunch</p>
-            <p className="dinner">dinner</p>
-            <p className="dessert">dessert</p>
+            <LuSandwich className="snack"></LuSandwich>
+            <MdOutlineBakeryDining className="breakfast"></MdOutlineBakeryDining>
+            <LuSoup className="lunch"></LuSoup>
+        <MdOutlineBrunchDining className="dinner"></MdOutlineBrunchDining>
+            <RiCake3Line className="dessert"></RiCake3Line>
 
 
         </div>

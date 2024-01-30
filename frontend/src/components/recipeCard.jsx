@@ -5,8 +5,10 @@ const RecipeCard = ({ recipe }) => {
     return (
 
         <div className="recipeCard">
+            <div className="recipeCardImage">
 
             <img src="./foodStock.jpeg" alt="image"></img>
+            </div>
 
 
             <h3>{recipe.title}</h3>

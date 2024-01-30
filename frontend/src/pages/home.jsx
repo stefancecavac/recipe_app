@@ -4,11 +4,12 @@ import {Link} from 'react-router-dom'
 
 import RecipeCard from '../components/recipeCard'
 import FilterCard from '../components/filterCard'
+import { useUserContext } from '../hooks/useUserHook'
 
 
 const Home = () => {
     const { recipes, dispatch } = useRecipeContext()
-
+    const {user} = useUserContext()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,6 +28,13 @@ const Home = () => {
    
     return (
         <div className="home">
+            
+            <div className='homeheader'>
+            <h1>Welcome to Recipepe</h1>
+
+                {!user && (<Link to='/login'>login</Link>)} 
+            </div>
+            
             <FilterCard></FilterCard>
             <div className="content">
                 {recipes && recipes.map((recipe) => (
