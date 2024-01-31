@@ -44,14 +44,14 @@ const Home = () => {
 
             <div className='homeheader'>
                 <h1>Welcome to Recipepe</h1>
-
+                <input type='text' placeholder='e.g. soup'></input>
                 {!user && (<Link to='/login'>login</Link>)}
             </div>
         
-            <div className='searchFilter'>
+            
                
-                <input type='text' placeholder='e.g. soup'></input>
-            </div>
+                
+            
 
             <FilterCard onFilter={handleMealType}></FilterCard>
             <p>found total: {recipes ? recipes.length : 0} recipes </p>

@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import { useRecipeContext } from '../hooks/useRecipeHook'
 import { useParams } from 'react-router-dom'
-import { FaArrowLeft } from "react-icons/fa";
-import { Link } from 'react-router-dom';
 
 import { IoTimeOutline } from "react-icons/io5";
 import { IoRestaurantOutline } from "react-icons/io5";
@@ -37,9 +35,7 @@ const RecipeDetail = () => {
             )}
             {singleRecipe && (
                 <>
-                    <div className='navigation'>
-                       <Link to='/'> <FaArrowLeft></FaArrowLeft></Link> 
-                    </div>
+                  
                     <img src="../foodStock.jpeg" alt="image"></img>
                     <div className='details'>
 

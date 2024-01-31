@@ -13,7 +13,6 @@ const AddRecipe = () => {
     const [error, setError] = useState(null);
     const [ok, setOk] = useState(null)
 
-    const [currentPage, setCurrentPage] = useState(1);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
@@ -83,150 +82,125 @@ const AddRecipe = () => {
     };
 
 
-    const nextPage = () => {
-        setCurrentPage(currentPage + 1)
-    }
-
-    const prevPage = () => {
-        setCurrentPage(currentPage - 1)
-    }
-
-
 
     return (
         <div className="addRecipe">
             <form onSubmit={postRecipe}>
-                {currentPage === 1 && (
-                    <div className="recipeinfo">
-                        <h1>New recipe - Page 1:</h1>
-                        <label>Dish name:</label>
-                        <input
-                            type="text"
-                            onChange={(e) => setTitle(e.target.value)}
-                            value={title}
-                        ></input>
+                <div className="recipeinfo">
+                    <h1>New recipe:</h1>
+                    <label>Dish name:</label>
+                    <input
+                        type="text"
+                        onChange={(e) => setTitle(e.target.value)}
+                        value={title}
+                    ></input>
 
-                        <label>Description:</label>
-                        <textarea
-                            type='text'
-                            onChange={(e) => setDescription(e.target.value)}
-                            value={description}
-                        ></textarea>
+                    <label>Description:</label>
+                    <textarea
+                        type='text'
+                        onChange={(e) => setDescription(e.target.value)}
+                        value={description}
+                    ></textarea>
+                </div>
 
-                        <button type="button" onClick={nextPage}>
-                            Next
+                <div className="recipecontent">
+
+
+
+                    <div className='midingridients'>
+                        <p>Ingredients:</p>
+                        <button type="button" onClick={addIngredient}>
+                            New Ingredient
                         </button>
-                    </div>
-                )}
-
-                {currentPage === 2 && (
-                    <div className="recipecontent">
-                        <h1>New recipe - Page 2:</h1>
-
-                        <div className='mid'>
-
-                            <div className='midingridients'>
-                                <h2>Ingredients:</h2>
-                                <button type="button" onClick={addIngredient}>
-                                    New Ingredient
+                        {ingredients.map((ingredient, index) => (
+                            <div key={index}>
+                                <button type="button" onClick={() => deleteIngredient(index)}>
+                                    -
                                 </button>
-                                {ingredients.map((ingredient, index) => (
-                                    <div key={index}>
-                                        <button type="button" onClick={() => deleteIngredient(index)}>
-                                            -
-                                        </button>
 
-                                        <input
-                                            type="text"
-                                            placeholder="Name"
-                                            value={ingredient.name}
-                                            onChange={(e) => handleIngredientChange(index, 'name', e.target.value)}
-                                        />
-                                        <input
-                                            type="number"
-                                            placeholder="Quantity"
-                                            value={ingredient.quantity}
-                                            onChange={(e) => handleIngredientChange(index, 'quantity', e.target.value)}
-                                        />
-                                    </div>
-                                ))}
-
+                                <input
+                                    type="text"
+                                    placeholder="Name"
+                                    value={ingredient.name}
+                                    onChange={(e) => handleIngredientChange(index, 'name', e.target.value)}
+                                />
+                                <input
+                                    type="number"
+                                    placeholder="Quantity"
+                                    value={ingredient.quantity}
+                                    onChange={(e) => handleIngredientChange(index, 'quantity', e.target.value)}
+                                />
                             </div>
+                        ))}
+
+                    </div>
 
 
-                            <div className='midinstructions'>
-                                <h2>Instructions:</h2>
-                                <button type="button" onClick={addInstruction}>
-                                    Add Instruction
+                    <div className='midinstructions'>
+                        <p>Instructions:</p>
+                        <button type="button" onClick={addInstruction}>
+                            Add Instruction
+                        </button>
+                        {instructions.map((instruction, index) => (
+                            <div key={index}>
+                                <button type="button" onClick={() => deleteInstruction(index)}>
+                                    -
                                 </button>
-                                {instructions.map((instruction, index) => (
-                                    <div key={index}>
-                                        <button type="button" onClick={() => deleteInstruction(index)}>
-                                            -
-                                        </button>
-                                        <input
-                                            type="text"
-                                            placeholder={`Step ${instruction.step}`}
-                                            value={instruction.description}
-                                            onChange={(e) => handleInstructionChange(index, 'description', e.target.value)}
-                                        />
-                                    </div>
-                                ))}
-
-
+                                <input
+                                    type="text"
+                                    placeholder={`Step ${instruction.step}`}
+                                    value={instruction.description}
+                                    onChange={(e) => handleInstructionChange(index, 'description', e.target.value)}
+                                />
                             </div>
-                        </div>
-
-                        <div className='buttons'>
-
-                            <button type="button" onClick={prevPage}>
-                                Previous
-                            </button>
-                            <button type="button" onClick={nextPage}>
-                                Next
-                            </button>
-                        </div>
+                        ))}
                     </div>
-                )}
 
-                {currentPage === 3 && (
-                    <div className="recipestatistics">
-                        <h1>New recipe - Page 3:</h1>
-                        <label>Cooking Time:</label>
-                        <input
-                            type="number"
-                            onChange={(e) => setCookingTime(e.target.value)}
-                            value={cookingTime}
-                        ></input>
+                </div>
 
-                        <label>Difficulty:</label>
-                        <input
-                            type="text"
-                            onChange={(e) => setDifficulty(e.target.value)}
-                            value={difficulty}
-                        ></input>
 
-                        <label>Meal Type:</label>
-                        <input
-                            type="text"
-                            onChange={(e) => setMealType(e.target.value)}
-                            value={mealType}
-                        ></input>
 
-                        <div className='buttons'>
+                <div className="recipestatistics">
 
-                            <button type="button" onClick={prevPage}>
-                                Previous
-                            </button>
-                            <button type="submit">
-                                Submit
-                            </button>
+                    <label>Cooking Time:</label>
+                    <input
+                        type="number"
+                        onChange={(e) => setCookingTime(e.target.value)}
+                        value={cookingTime}
+                    ></input>
 
-                        </div>
-                    </div>
-                )}
-                {error && <div className='error'>{error}</div>}
-                {ok && <div className='ok'>{ok}</div>}
+                    <select
+                        value={difficulty}
+                        onChange={(e) => setDifficulty(e.target.value)}
+                    >
+                        <option value=''>select dish difficulty:</option>
+                        {['easy', 'medium', 'hard'].map((difficulty) => (
+
+                            <option key={difficulty} value={difficulty}>{difficulty}</option>
+                        )
+                        )}
+                    </select>
+
+
+                    <select
+                        value={mealType}
+                        onChange={(e) => setMealType(e.target.value)}
+                    >
+                        <option value=''>select Meal Type:</option>
+                        {['snack', 'breakfast', 'lunch', 'dinner', 'desert'].map((mealType) => (
+
+                            <option key={mealType} value={mealType}>{mealType}</option>
+                        )
+                        )}
+                    </select>
+
+                    <button type="submit">
+                        Submit
+                    </button>
+                    {error && <div className='error'>{error}</div>}
+                    {ok && <div className='ok'>{ok}</div>}
+                </div>
+
             </form>
 
 

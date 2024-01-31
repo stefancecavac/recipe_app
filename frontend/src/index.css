@@ -6,18 +6,18 @@ body {
     background-color: rgb(255, 192, 203);
     font-family: 'Poppins', sans-serif;
 
-
+    
 
 
 }
 
 .mainRoot {
-    margin: 20px;
+   
     background-color: rgb(255, 211, 219);
-    border-radius: 20px;
+    
     display: flex;
-    height: 95vh;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    height: 100vh;
+    
 }
 
 .error {
@@ -41,16 +41,16 @@ body {
 aside {
     border-radius: 20px;
     margin: 20px;
-    
+
     height: 80vh;
     width: 12%;
-   
+
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
     margin-left: 0;
-   
+
 }
 
 aside button {
@@ -62,7 +62,7 @@ aside button {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
-    border: 2px solid white;
+
     text-decoration: none;
 }
 
@@ -90,7 +90,7 @@ aside button:hover {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
-    border: 2px solid white;
+ 
     text-decoration: none;
 }
 
@@ -98,26 +98,19 @@ aside button:hover {
 .useractions a:hover {
     background-color: white;
     color: pink;
-    border: 2px solid pink;
 }
 
 
 
 .home {
     flex-grow: 1;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    
     border-radius: 20px;
     margin: 20px;
 
-    background-color: white;
-
-
-    background: rgba(255, 255, 255, 0.57);
-    border-radius: 16px;
+    background-color: rgb(255, 255, 255);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+  
 }
 
 .home p {
@@ -132,15 +125,7 @@ aside button:hover {
     margin: 30px;
 }
 
-
-
-.searchFilter {
-    display: flex;
-    justify-content: center;
-
-}
-
-.searchFilter input {
+.homeheader input {
     font-size: 0.8em;
     padding: 7px 10px;
     width: 50%;
@@ -294,11 +279,7 @@ aside button:hover {
     grid-template-columns: repeat(auto-fill, minmax(250px, 4fr));
     margin: 20px;
     border-radius: 20px;
-    background-color: #f6f6f6;
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-
-
 }
 
 .content a {
@@ -357,14 +338,20 @@ aside button:hover {
 
 .recipeDetail {
     flex-grow: 1;
-
     width: 75%;
-    height: 100%;
+    
     margin: 20px;
     display: flex;
     flex-direction: column;
-    background-color: #efeeee;
     border-radius: 10px;
+
+
+    background: rgba(255, 255, 255, 0.57);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .recipeDetail h2 {
@@ -390,13 +377,6 @@ aside button:hover {
     align-items: center;
     font-size: 0.7em;
 
-}
-
-.navigation {
-    background-color: white;
-    border-radius: 20px;
-    margin: 10px;
-    padding: 10px;
 }
 
 .recipeDetail img {
@@ -578,85 +558,79 @@ aside button:hover {
     border: 2px solid pink;
 }
 
+
+
+
 .addRecipe {
-    margin:20px;
+    margin: 20px;
     flex-grow: 1;
-    background-color: #f9f9f9;
-    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-   
+    background: rgba(255, 255, 255, 0.57);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    
+
 }
-
 
 .addRecipe form {
     font-size: 0.8em;
     height: 90%;
     padding: 20px;
     border-radius: 10px;
+    display: flex;
+
 }
 
 .recipeinfo {
-    height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .recipeinfo h1 {
-    color: pink;
- 
+    color: rgb(33, 33, 33);
     margin: 0;
     margin-bottom: 20px;
 
 }
 
 .recipeinfo input {
-    width: 20%;
-    height: 10px;
-    margin-bottom: 30px;
-    border-radius: 20px;
-    padding: 10px;
+    width: 80%;
 
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border: 1px solid pink;
+    padding: 5px;
 }
 
 .recipeinfo textarea {
     width: 90%;
-    height: 60%;
-    margin-bottom: 10px;
+    height: 30%;
+    border: 1px solid pink;
+
     resize: none;
     padding: 10px;
     border-radius: 20px;
 }
 
-.recipeinfo button {
-    font-size: 1em;
-    padding: 10px;
-    background-color: pink;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 1px;
-    border: 2px solid white;
-
-}
-
-.recipeinfo button:hover {
-    background-color: white;
-    color: pink;
-    border: 2px solid pink;
-}
-
-
 .recipecontent {
-    width: 1000px;
-    height: 500px;
+    margin: auto;
+    margin-top: 50px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: baseline;
+ 
+    border-radius: 10px;
+    border: 2px solid pink;
+    padding:10px;
+    overflow-x: auto;
+    max-height: 90%;
 }
+
 
 .recipecontent h1 {
     color: pink;
@@ -666,25 +640,16 @@ aside button:hover {
 
 }
 
-.recipecontent .mid {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: baseline;
-    height: 100%;
-}
 
-.recipecontent .mid h2 {
-    font-size: 1em;
-}
-
-.recipecontent .mid input {
+.recipecontent input {
     margin: 10px;
-    border-radius: 20px;
-    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid pink;
+    padding: 5px;
 }
 
-.recipecontent .mid button {
-    font-size: 0.7em;
+.recipecontent button {
+    font-size: 0.9em;
     padding: 10px;
     background-color: pink;
     color: white;
@@ -693,66 +658,43 @@ aside button:hover {
     cursor: pointer;
     margin-bottom: 1px;
     border: 2px solid white;
-
+    margin-bottom: 20px;
 }
 
-.recipecontent .mid button:hover {
-    background-color: white;
-    color: pink;
-    border: 2px solid pink;
-}
-
-
-
-.recipecontent .buttons {
-    display: flex;
-    justify-content: center;
-}
-
-.recipecontent .buttons button {
-    font-size: 1em;
-    padding: 10px;
-    background-color: pink;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 1px;
-    border: 2px solid white;
-    margin-left: 10px;
-}
-
-.recipecontent .buttons button:hover {
+.recipecontent button:hover {
     background-color: white;
     color: pink;
     border: 2px solid pink;
 }
 
 .recipestatistics {
-    height: 500px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
-}
-
-.recipestatistics h1 {
-
-    color: pink;
-    font-size: 1.5em;
-    margin: 0;
-    margin-bottom: 20px;
-
+   
 }
 
 .recipestatistics input {
     width: 50%;
-    height: 30px;
-    margin-bottom: 30px;
-    border-radius: 20px;
-    padding: 10px;
+    
+    border: 1px solid pink;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 
+}
+
+.recipestatistics select{
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid pink;
+
+}
+
+.recipestatistics option{
+    padding: 10px;
 }
 
 .recipestatistics button {

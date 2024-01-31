@@ -27,7 +27,7 @@ const FilterCard = ({onFilter}) => {
                 <MdOutlineBrunchDining className="dinnerIcon"></MdOutlineBrunchDining>
                 <p>dinner</p>
             </button>
-            <button className="dessert" onClick={() => onFilter('dessert')}>
+            <button className="dessert" onClick={() => onFilter('desert')}>
                 <RiCake3Line className="dessertIcon"></RiCake3Line>
                 <p>dessert</p>
             </button>
