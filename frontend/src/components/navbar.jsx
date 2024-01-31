@@ -19,7 +19,7 @@ const AsideBar = () => {
 
             <div className="logincred">
                 <div className='userinfo'>
-                    <p>{user.email}</p>
+                    <p>{user.username}</p>
 
                 </div>
                 <div className='useractions'>

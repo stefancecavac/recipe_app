@@ -4,7 +4,7 @@ import {UseRegister} from '../hooks/useRegisterHook'
 
 
 const Register = () => {
-  
+    const [username , setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const {register , error} = UseRegister()
@@ -12,7 +12,7 @@ const Register = () => {
     
     const handleRegister = async(e) => {
         e.preventDefault()
-        await register(email, password)
+        await register(email, password ,username)
         
     }
 
@@ -21,9 +21,15 @@ const Register = () => {
 
         <form onSubmit={handleRegister}>
             <h2>register</h2>
+
+            <label>Username:</label>
+            <input type="text"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}></input>
+
           
             <label>email:</label>
-            <input type="text"
+            <input type="email"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}></input>
 

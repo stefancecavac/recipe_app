@@ -1,11 +1,21 @@
 const express = require('express')
 const router = express.Router()
 
-const {getRecipes , postRecipe , deleteRecipe ,getSingleRecipe} = require('../controllers/recipeControllers')
+const {getRecipes , postRecipe , deleteRecipe ,getSingleRecipe ,getFilteredRecipe} = require('../controllers/recipeControllers')
 const authenticate = require('../middleware/authentication')
 
 
-router.get('/' , getRecipes)
+router.get('/' , (req, res, next) => {
+    const {mealType} = req.query
+
+    if(mealType){
+        getFilteredRecipe(req, res,next)
+    }else{
+        getRecipes(req,res,next)
+    }
+})
+
+
 router.get('/:id' , getSingleRecipe)
 
 

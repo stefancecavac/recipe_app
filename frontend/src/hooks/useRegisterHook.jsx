@@ -2,13 +2,14 @@ import {  useState } from "react"
 import {useUserContext} from './useUserHook'
 
 export const UseRegister = () => {
+     
     const [error , setError] = useState(null)
     const {dispatch} = useUserContext()
 
-    const register = async(email , password) => {
+    const register = async(email , password ,username) => {
         const response = await fetch('http://localhost:4000/api/user/register', {
             method: 'POST',
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ email, password, username }),
             headers: {
                 'Content-Type': 'application/json',
             }

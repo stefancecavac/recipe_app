@@ -30,6 +30,24 @@ const getSingleRecipe = async(req , res) => {
     }
 }
 
+const getFilteredRecipe = async(req , res) => {
+    const {mealType} = req.query
+
+    const filter = {}
+
+    if(mealType){
+        filter.mealType = mealType
+    }
+
+    try{
+        const recipe = await Recipe.find(filter)
+        res.status(200).json(recipe)
+    }
+    catch(error){
+        res.status(500).json({error: error.message})
+    }
+}
+
 const postRecipe = async(req, res) => {
         const {title ,description ,ingredients ,instructions ,cookingTime ,difficulty ,mealType} = req.body
 
@@ -74,4 +92,4 @@ const deleteRecipe = async(req, res) => {
     }
 } 
 
-module.exports = {getRecipes ,postRecipe ,deleteRecipe ,getSingleRecipe}
+module.exports = {getRecipes ,postRecipe ,deleteRecipe ,getSingleRecipe ,getFilteredRecipe}
