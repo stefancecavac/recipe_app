@@ -15,31 +15,16 @@ const AsideBar = () => {
 
     return (
         <aside>
-
-
-            <div className="logincred">
-                <div className='userinfo'>
-                    <p>{user.username}</p>
-
-                </div>
-                <div className='useractions'>
-                    <Link to='/'>Home</Link>
-                   <Link to='/add-recipe'>New recipe</Link>
-                   
-                 
-                   <span className='liked'>
-                  Liked Recipes
-                    
-                    </span>
-                   
-                </div>
-
-
-                <button onClick={handleLogout}>logout</button>
-
+            <div className='userinfo'>
+                <p>{user.username}</p>
             </div>
 
-
+            <div className='useractions'>
+                <Link to='/'>Home</Link>
+                <Link to='/add-recipe'>New recipe</Link>
+                <a>liked recipes</a>
+            </div>
+            <button onClick={handleLogout}>logout</button>
         </aside>
     )
 }

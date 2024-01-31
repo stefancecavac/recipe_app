@@ -7,7 +7,10 @@ import { Link } from 'react-router-dom';
 import { IoTimeOutline } from "react-icons/io5";
 import { IoRestaurantOutline } from "react-icons/io5";
 
+
 const RecipeDetail = () => {
+
+    
     const { singleRecipe, dispatch } = useRecipeContext()
     const { recipeId } = useParams()
 
@@ -24,11 +27,14 @@ const RecipeDetail = () => {
 
         }
         fetchRecipe()
-    }, [dispatch, singleRecipe, recipeId])
+    }, [dispatch, recipeId])
 
 
     return (
         <div className="recipeDetail">
+         {singleRecipe && singleRecipe.userid && (
+                <div>{singleRecipe.userid.username}</div>
+            )}
             {singleRecipe && (
                 <>
                     <div className='navigation'>
@@ -43,7 +49,7 @@ const RecipeDetail = () => {
                         <span className='mealType'><IoRestaurantOutline></IoRestaurantOutline> {singleRecipe.mealType}</span>
                         
                        <span className='cookingTime'><IoTimeOutline></IoTimeOutline> {singleRecipe.cookingTime} min</span> 
-                        <p>difficulty:  {singleRecipe.difficulty}</p>
+                        <span className='difficulty'><p>difficulty:  {singleRecipe.difficulty}</p></span>
                     </div>
 
                     <div className='description'>Description:

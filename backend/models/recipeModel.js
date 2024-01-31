@@ -35,6 +35,12 @@ const recipeSchema = new Schema({
     },
   ],
 
+  userid: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User', 
+    required: true
+},
+
   cookingTime: {
     type: Number, 
     required: true
@@ -49,6 +55,12 @@ const recipeSchema = new Schema({
     enum:['breakfast' ,"lunch" , "dinner" , "snack" , "desert"],
     required: true
   },
+
+  rating: {
+    type: Number,
+    min: 1, 
+    max: 5,
+  }
   
 
 } , {timestamps : true});

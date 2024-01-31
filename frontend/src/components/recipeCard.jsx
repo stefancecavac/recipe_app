@@ -12,6 +12,7 @@ const RecipeCard = ({ recipe }) => {
 
 
             <h3>{recipe.title}</h3>
+            {recipe.rating ? (<p>{recipe.rating}</p>) : (<p>no rating yet</p>)}
             <div className="recipeCardDetails">
 
                 <p>{recipe.mealType}</p>

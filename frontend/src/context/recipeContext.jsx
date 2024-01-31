@@ -35,7 +35,7 @@ export const RecipeContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(recipeReducer, {
         recipes: []
     })
-
+    console.log(state)
     return (
         <RecipeContext.Provider value={{ ...state, dispatch }}>
             {children}

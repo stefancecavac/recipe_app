@@ -19,7 +19,7 @@ const getSingleRecipe = async(req , res) => {
         return res.status(400).json({error: 'not a valid id'})
     }
     try{
-        const recipe = await Recipe.findOne({_id : id})
+        const recipe = await Recipe.findOne({_id : id}).populate('userid' , 'username')
         if(!recipe){
             return res.status(400).json({error: 'no such recipe'}) 
         }
@@ -49,12 +49,13 @@ const getFilteredRecipe = async(req , res) => {
 }
 
 const postRecipe = async(req, res) => {
-        const {title ,description ,ingredients ,instructions ,cookingTime ,difficulty ,mealType} = req.body
+        const {title ,description ,ingredients ,instructions ,cookingTime ,difficulty ,mealType ,rating} = req.body
 
         if(!title || !description ||!ingredients ||!instructions ||!cookingTime ||!difficulty ||!mealType ){
             return res.status(400).json({message: 'please fill out all fields'})
         }
         try{
+            const userid = req.user._id
             const recipe = await Recipe.create({
                 title ,
                 description ,
@@ -62,9 +63,13 @@ const postRecipe = async(req, res) => {
                 instructions ,
                 cookingTime ,
                 difficulty ,
-                mealType})
+                mealType,
+                rating,
+                userid
+            })
             
             res.status(201).json(recipe)
+            console.log(recipe)
         }
         catch(error){
             res.status(500).json({error: error.message})
