@@ -97,4 +97,40 @@ const deleteRecipe = async(req, res) => {
     }
 } 
 
-module.exports = {getRecipes ,postRecipe ,deleteRecipe ,getSingleRecipe ,getFilteredRecipe}
+const likeRecipe = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'Not a valid id' });
+    }
+    try {
+        const userid = req.user._id;
+        const query = { _id: id };
+        const update = {};
+        
+        const recipe = await Recipe.findOne(query);
+
+        if (!recipe) {
+            return res.status(400).json({ error: 'No such recipe' });
+        }
+
+        if (recipe.likes.includes(userid)) {
+
+            update.$pull = { likes: userid };
+        } else {
+
+            update.$addToSet = { likes: userid };
+        }
+
+        const options = { new: true }; 
+
+        const updatedRecipe = await Recipe.findOneAndUpdate(query, update, options);
+
+        res.status(200).json(updatedRecipe);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
+module.exports = {getRecipes ,postRecipe ,deleteRecipe ,getSingleRecipe ,getFilteredRecipe,likeRecipe }

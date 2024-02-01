@@ -17,7 +17,7 @@ const recipeSchema = new Schema({
         required: true
       },
       quantity: {
-        type: Number, 
+        type: Number,
         required: true
       },
     },
@@ -37,34 +37,33 @@ const recipeSchema = new Schema({
 
   userid: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', 
+    ref: 'User',
     required: true
-},
+  },
 
   cookingTime: {
-    type: Number, 
+    type: Number,
     required: true
   },
   difficulty: {
-    type:String,
-    enum: ['easy' , 'medium' , 'hard'],
+    type: String,
+    enum: ['easy', 'medium', 'hard'],
     required: true
   },
   mealType: {
     type: String,
-    enum:['breakfast' ,"lunch" , "dinner" , "snack" , "desert"],
+    enum: ['breakfast', "lunch", "dinner", "snack", "desert"],
     required: true
   },
+  likes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    },
+  ],
 
-  rating: {
-    type: Number,
-    min: 1, 
-    max: 5,
-  }
-  
-
-} , {timestamps : true});
+}, { timestamps: true });
 
 
-module.exports = mongoose.model('Recipe' , recipeSchema)
+module.exports = mongoose.model('Recipe', recipeSchema)
 

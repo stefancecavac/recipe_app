@@ -17,6 +17,11 @@ export const recipeReducer = (state, action) => {
             return {
                 singleRecipe: action.payload
             }
+            case 'UPDATE_RECIPE':
+                return {
+                    singleRecipe: action.payload,
+                    
+                }
         case 'POST_RECIPE':
             return {
                 recipes: [action.payload, ...state.recipes]

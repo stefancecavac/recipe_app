@@ -15,8 +15,7 @@ const RecipeCard = ({ recipe }) => {
                 <p>{recipe.difficulty}</p>
             </div>
 
-            {recipe.rating ? (<p>{recipe.rating}</p>) : (<p>no rating yet</p>)}
-
+        <p>{recipe.likes.length}</p>
         </div>
     )
 }

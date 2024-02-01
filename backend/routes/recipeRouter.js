@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const {getRecipes , postRecipe , deleteRecipe ,getSingleRecipe ,getFilteredRecipe} = require('../controllers/recipeControllers')
+const {getRecipes , postRecipe , deleteRecipe ,getSingleRecipe ,getFilteredRecipe ,likeRecipe} = require('../controllers/recipeControllers')
 const authenticate = require('../middleware/authentication')
 
 
@@ -23,6 +23,6 @@ router.get('/:id' , getSingleRecipe)
 router.use(authenticate)
 router.post('/' , postRecipe)
 router.delete('/:id' , deleteRecipe)
-
+router.patch('/:id/like',likeRecipe)
 
 module.exports = router
