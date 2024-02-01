@@ -14,7 +14,7 @@ function App() {
 const {user} = useUserContext()
 
   return (
-    <div className='mainRoot'>
+  
      
       <BrowserRouter>
       
@@ -32,7 +32,7 @@ const {user} = useUserContext()
         </Routes>
         {user && (<AsideBar></AsideBar>)}
       </BrowserRouter>
-    </div>
+   
   )
 }
 

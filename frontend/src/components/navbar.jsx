@@ -16,7 +16,10 @@ const AsideBar = () => {
     return (
         <aside>
             <div className='userinfo'>
+                <div className='userImage'>
+
                 <p>{user.username}</p>
+                </div>
             </div>
 
             <div className='useractions'>
