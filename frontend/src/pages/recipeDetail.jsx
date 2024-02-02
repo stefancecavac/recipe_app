@@ -1,12 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect} from 'react'
 import { useRecipeContext } from '../hooks/useRecipeHook'
 
 import { useParams } from 'react-router-dom'
 
 import { IoTimeOutline } from "react-icons/io5";
 import { IoRestaurantOutline } from "react-icons/io5";
-import { FaThumbsUp } from "react-icons/fa";
+
 import { useUserContext } from '../hooks/useUserHook';
+
+import { FaHeart } from "react-icons/fa6";
+
 
 const RecipeDetail = () => {
 
@@ -15,7 +18,7 @@ const RecipeDetail = () => {
     const { recipeId } = useParams()
     const{user} = useUserContext()
 
-
+   
 
     useEffect(() => {
 
@@ -46,6 +49,7 @@ const RecipeDetail = () => {
              });
              const json = await response.json()
             if (response.ok) {
+             
                dispatch({type:'UPDATE_RECIPE' , payload:json})
                
             } else {
@@ -58,7 +62,9 @@ const RecipeDetail = () => {
 
     return (
         <div className="recipeDetail">
-             <button onClick={handleLike}><FaThumbsUp /> Like</button>
+
+             
+
             {singleRecipe && singleRecipe.userid && (
                 <div>{singleRecipe.userid.username}</div>
             )}
@@ -70,6 +76,10 @@ const RecipeDetail = () => {
 
 
                         <h2>{singleRecipe.title}</h2>
+
+                        <span onClick={handleLike} style={{ color: singleRecipe.likes.includes(user._id) ? 'red' : 'white' }}><FaHeart></FaHeart></span>
+
+
 
                         <span className='mealType'><IoRestaurantOutline></IoRestaurantOutline> {singleRecipe.mealType}</span>
 

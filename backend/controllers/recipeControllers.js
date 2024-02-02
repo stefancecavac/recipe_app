@@ -134,4 +134,21 @@ const likeRecipe = async (req, res) => {
 };
 
 
-module.exports = {getRecipes ,postRecipe ,deleteRecipe ,getSingleRecipe ,getFilteredRecipe,likeRecipe }
+const getLikedRecipes = async (req, res) => {
+    const userid = req.user._id;
+    try {
+     
+        if (!mongoose.Types.ObjectId.isValid(userid)) {
+            return res.status(400).json({ error: 'Invalid user id' });
+        }
+
+        const recipe = await Recipe.find({ likes: userid });
+
+        res.status(200).json(recipe);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
+module.exports = {getRecipes ,postRecipe ,deleteRecipe ,getSingleRecipe ,getFilteredRecipe,likeRecipe ,getLikedRecipes}

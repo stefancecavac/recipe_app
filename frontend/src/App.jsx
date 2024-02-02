@@ -8,7 +8,7 @@ import Register from './pages/register'
 import AsideBar from './components/navbar'
 import { useUserContext } from './hooks/useUserHook'
 import AddRecipe from './pages/addRecipe'
-
+import LikedRecipes from './pages/likedRecipes'
 
 function App() {
 const {user} = useUserContext()
@@ -23,6 +23,8 @@ const {user} = useUserContext()
           <Route path="/recipe-details/:recipeId" element={<RecipeDetail></RecipeDetail>}></Route>
 
           <Route path="/add-recipe" element={!user? (<Navigate to='/'></Navigate>) : (<AddRecipe></AddRecipe>)}></Route>
+
+          <Route path='/liked-recipe' element={<LikedRecipes></LikedRecipes>}></Route>
 
           <Route path="/login" element={user? (<Navigate to='/'></Navigate>): (<Login></Login>)}></Route>
           <Route path="/register" element={user? (<Navigate to='/'></Navigate>): (<Register></Register>)}></Route>

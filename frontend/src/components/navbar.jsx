@@ -25,7 +25,7 @@ const AsideBar = () => {
             <div className='useractions'>
                 <Link to='/'>Home</Link>
                 <Link to='/add-recipe'>New recipe</Link>
-                <a>liked recipes</a>
+                <Link to='/liked-recipe'>Liked recipe</Link>
             </div>
             <button onClick={handleLogout}>logout</button>
         </aside>

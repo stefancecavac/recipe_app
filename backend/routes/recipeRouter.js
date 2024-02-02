@@ -1,9 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const {getRecipes , postRecipe , deleteRecipe ,getSingleRecipe ,getFilteredRecipe ,likeRecipe} = require('../controllers/recipeControllers')
+const {getRecipes , postRecipe , deleteRecipe ,getSingleRecipe ,getFilteredRecipe ,likeRecipe ,getLikedRecipes} = require('../controllers/recipeControllers')
 const authenticate = require('../middleware/authentication')
-
 
 router.get('/' , (req, res, next) => {
     const {mealType} = req.query
@@ -20,6 +19,8 @@ router.get('/:id' , getSingleRecipe)
 
 
 router.use(authenticate)
+
+
 
 router.post('/' , postRecipe)
 router.delete('/:id' , deleteRecipe)

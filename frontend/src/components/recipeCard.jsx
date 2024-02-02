@@ -1,4 +1,4 @@
-
+import { FaHeart } from "react-icons/fa6";
 
 const RecipeCard = ({ recipe }) => {
 
@@ -15,7 +15,16 @@ const RecipeCard = ({ recipe }) => {
                 <p>{recipe.difficulty}</p>
             </div>
 
-        <p>{recipe.likes.length}</p>
+            <div className="recipeCardLikes">
+                {recipe.likes.length > 0 ? (
+                    <>
+                        <FaHeart /> 
+                        <p>{recipe.likes.length} likes</p>
+                    </>
+                ) : (
+                    <p>no likes yet</p>
+                )}
+            </div>
         </div>
     )
 }

@@ -340,6 +340,14 @@ aside button:hover {
 
 
 }
+.recipeCardLikes{
+    display: flex;
+    margin-left: 20px;
+}
+.recipeCardLikes svg{
+    color:red
+}
+
 
 
 .recipeDetail {
@@ -399,6 +407,7 @@ aside button:hover {
     width: 60%;
     margin-top: 0;
     padding: 2px;
+    font-size: 2em;
 
 }
 
