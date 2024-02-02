@@ -21,7 +21,9 @@ const Home = () => {
         setLoading(true)
         const fetchData = async () => {
             const response = await fetch(`http://localhost:4000/api/recipes?mealType=${mealType}`, {
-
+                headers: {
+                    'Authorization': `Bearer ${user.token}`,
+                }
             })
             const json = await response.json()
 
@@ -32,7 +34,7 @@ const Home = () => {
 
         }
         fetchData()
-    }, [dispatch ,mealType])
+    }, [dispatch ,mealType,user.token ,user])
 
     const handleMealType = (selectedCategory) => {
         setMealType(selectedCategory);

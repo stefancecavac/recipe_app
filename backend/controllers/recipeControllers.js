@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const getRecipes = async(req , res) => {
 
     try{
+        
         const recipe = await Recipe.find({})
         res.status(200).json(recipe)
     }
@@ -69,7 +70,7 @@ const postRecipe = async(req, res) => {
             })
             
             res.status(201).json(recipe)
-            console.log(recipe)
+
         }
         catch(error){
             res.status(500).json({error: error.message})

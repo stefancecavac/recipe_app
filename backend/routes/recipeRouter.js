@@ -19,8 +19,8 @@ router.get('/' , (req, res, next) => {
 router.get('/:id' , getSingleRecipe)
 
 
-
 router.use(authenticate)
+
 router.post('/' , postRecipe)
 router.delete('/:id' , deleteRecipe)
 router.patch('/:id/like',likeRecipe)

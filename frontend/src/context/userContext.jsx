@@ -17,7 +17,7 @@ export const UserReducer = (state, action) => {
 
 export const UserContextProvider = ({children}) => {
     const [state , dispatch] = useReducer(UserReducer, {
-        user:null
+        user:[]
     })
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'))
@@ -27,7 +27,7 @@ export const UserContextProvider = ({children}) => {
         }
 
     }, [])
-  
+  console.log(state)
     return(
         <UserContext.Provider value={{...state , dispatch}}>
             {children}
