@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
- background-color: rgb(255, 211, 219);
+    background-color: rgb(255, 227, 232);
     font-family: 'Poppins', sans-serif;
 
 
@@ -11,12 +11,12 @@ body {
 }
 
 #root {
-   
-    background-color: rgb(255, 211, 219);
-    
+
+    background-color: rgb(255, 227, 232);
+
     display: flex;
-   
-    
+
+
 }
 
 .error {
@@ -43,7 +43,7 @@ aside {
 
     height: 80vh;
     width: 12%;
-  
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -74,7 +74,7 @@ aside button:hover {
 .userinfo .userImage {
     background-color: white;
     border-radius: 50%;
-    padding:50px;
+    padding: 50px;
 }
 
 .useractions {
@@ -93,7 +93,7 @@ aside button:hover {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
- 
+
     text-decoration: none;
 }
 
@@ -107,13 +107,13 @@ aside button:hover {
 
 .home {
     flex-grow: 1;
-    
+
     border-radius: 20px;
     margin: 20px;
 
     background-color: rgb(255, 255, 255);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  
+
 }
 
 .home p {
@@ -149,7 +149,7 @@ aside button:hover {
     display: flex;
     justify-content: space-evenly;
     background-color: #fafafa;
-  
+
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     margin: auto;
@@ -324,8 +324,9 @@ aside button:hover {
     border-radius: 10px;
     padding: 0;
 }
-.recipeCard p{
-    margin:0;
+
+.recipeCard p {
+    margin: 0;
     margin-left: 10px;
 }
 
@@ -340,12 +341,14 @@ aside button:hover {
 
 
 }
-.recipeCardLikes{
+
+.recipeCardLikes {
     display: flex;
     margin-left: 20px;
 }
-.recipeCardLikes svg{
-    color:red
+
+.recipeCardLikes svg {
+    color: red
 }
 
 
@@ -356,88 +359,104 @@ aside button:hover {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(233, 232, 232);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.recipeDetail h2 {
-    font-size: 1em;
+
+.titleDetails {
+    margin-bottom: 20%;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 40%;
 }
 
-.recipeDetail .cookingTime {
+.titleDetails .title {
+
+    font-size: 3em;
     display: flex;
     align-items: center;
-    font-size: 0.7em;
+    justify-content: center;
 
 }
 
-.recipeDetail .mealType {
+.titleDetails .title h2 {
+    margin: 0;
+}
+
+.titleDetailsMisc {
     display: flex;
     align-items: center;
-    font-size: 0.7em;
-
+    justify-content: center;
 }
 
-.recipeDetail .difficulty {
+.titleDetailsMisc .mealType {
     display: flex;
     align-items: center;
-    font-size: 0.7em;
-
 }
+
+.titleDetailsMisc .cookingTime {
+    display: flex;
+    align-items: center;
+}
+
+.titleDetailsMisc .difficulty {
+    display: flex;
+    align-items: center;
+}
+
+
 
 .recipeDetail img {
-    width: 50%;
-    margin: auto;
-    margin-top: 5px;
-    margin-bottom: 0;
-    height: 50%;
-    border-radius: 50px 50px 0 0;
-
+    width: 100%;
+    border-radius: 0 20px 0 0;
 }
 
 .details {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: rgb(226, 225, 225);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    border-radius: 50px;
-    margin: auto;
-    margin-bottom: 2px;
-    width: 60%;
-    margin-top: 0;
-    padding: 2px;
-    font-size: 2em;
+    justify-content: space-between;
 
 }
 
-.description {
-    font-size: 0.7em;
-    background-color: rgb(226, 225, 225);    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    margin: 20px;
+.details .image {
+    width: 58%;
+    border-radius: 0 20px 0 0;
+    background-color: pink;
+}
+
+.details p {
     padding: 10px;
+    margin: 0;
 }
+
+
+
+.mainContent{
+    display: flex;
+    margin-top: 20px;
+}
+
+
 
 .ingridients {
-    font-size: 0.7em;
-    background-color: rgb(226, 225, 225);    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    margin: 20px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-
-    padding: 10px;
+    width: 40%;
+    background-color: white;
+    border-radius: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    
+  
 }
 
 .instructions {
-    font-size: 0.7em;
-    background-color: rgb(226, 225, 225);    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    margin: 20px;
-    margin-top: 5px;
-
-    padding: 10px;
+    width: 60%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .login {
@@ -580,7 +599,7 @@ aside button:hover {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    
+
 
 }
 
@@ -631,10 +650,10 @@ aside button:hover {
     display: flex;
     justify-content: space-evenly;
     align-items: baseline;
- 
+
     border-radius: 10px;
     border: 2px solid pink;
-    padding:10px;
+    padding: 10px;
     overflow-x: auto;
     max-height: 90%;
 }
@@ -680,12 +699,12 @@ aside button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-   
+
 }
 
 .recipestatistics input {
     width: 50%;
-    
+
     border: 1px solid pink;
     padding: 5px;
     border-radius: 10px;
@@ -693,7 +712,7 @@ aside button:hover {
 
 }
 
-.recipestatistics select{
+.recipestatistics select {
     border-radius: 10px;
     margin-bottom: 20px;
     padding: 10px;
@@ -701,7 +720,7 @@ aside button:hover {
 
 }
 
-.recipestatistics option{
+.recipestatistics option {
     padding: 10px;
 }
 

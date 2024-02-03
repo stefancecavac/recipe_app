@@ -1,4 +1,4 @@
-import { useEffect} from 'react'
+import { useEffect } from 'react'
 import { useRecipeContext } from '../hooks/useRecipeHook'
 
 import { useParams } from 'react-router-dom'
@@ -16,9 +16,9 @@ const RecipeDetail = () => {
 
     const { singleRecipe, dispatch } = useRecipeContext()
     const { recipeId } = useParams()
-    const{user} = useUserContext()
+    const { user } = useUserContext()
 
-   
+
 
     useEffect(() => {
 
@@ -34,24 +34,24 @@ const RecipeDetail = () => {
 
         }
 
-        
+
         fetchRecipe()
     }, [dispatch, recipeId,])
 
     const handleLike = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/api/recipes/${recipeId}/like`, { 
+            const response = await fetch(`http://localhost:4000/api/recipes/${recipeId}/like`, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${user.token}`,
                     'Content-Type': 'application/json',
                 }
-             });
-             const json = await response.json()
+            });
+            const json = await response.json()
             if (response.ok) {
-             
-               dispatch({type:'UPDATE_RECIPE' , payload:json})
-               
+
+                dispatch({ type: 'UPDATE_RECIPE', payload: json })
+
             } else {
                 console.error('Failed to like the recipe');
             }
@@ -63,33 +63,35 @@ const RecipeDetail = () => {
     return (
         <div className="recipeDetail">
 
-             
-
-            {singleRecipe && singleRecipe.userid && (
-                <div>{singleRecipe.userid.username}</div>
-            )}
             {singleRecipe && (
                 <>
 
-                    <img src="../foodStock.jpeg" alt="image"></img>
                     <div className='details'>
 
+                        <div className='titleDetails'>
+                            <div className='title'>
+                                <h2>{singleRecipe.title}</h2>
+                            </div>
+                            <div className='titleDetailsMisc'>
+                               {user &&<span onClick={handleLike} style={{ color: singleRecipe.likes.includes(user._id) ? 'red' : 'white' }}><FaHeart></FaHeart></span>} 
 
-                        <h2>{singleRecipe.title}</h2>
+                                <div className='mealType'><IoRestaurantOutline></IoRestaurantOutline>  <p>{singleRecipe.mealType}</p></div>
+                                <div className='cookingTime'><IoTimeOutline></IoTimeOutline>  <p>{singleRecipe.cookingTime} min</p></div>
+                                <div className='difficulty'><p>difficulty:  {singleRecipe.difficulty}</p></div>
+                            </div>
 
-                        <span onClick={handleLike} style={{ color: singleRecipe.likes.includes(user._id) ? 'red' : 'white' }}><FaHeart></FaHeart></span>
 
 
+                        </div>
 
-                        <span className='mealType'><IoRestaurantOutline></IoRestaurantOutline> {singleRecipe.mealType}</span>
-
-                        <span className='cookingTime'><IoTimeOutline></IoTimeOutline> {singleRecipe.cookingTime} min</span>
-                        <span className='difficulty'><p>difficulty:  {singleRecipe.difficulty}</p></span>
+                        <div className='image'>
+                            <img src="../foodStock.jpeg" alt="image"></img>
+                            <p>{singleRecipe.description}</p>
+                        </div>
                     </div>
+                    
 
-                    <div className='description'>Description:
-                        <p>{singleRecipe.description}</p>
-                    </div>
+                    <div className='mainContent'>
 
                     <div className='ingridients'>
                         ingridients:
@@ -110,6 +112,8 @@ const RecipeDetail = () => {
                             </div>
                         ))}
                     </div>
+                    </div>
+                
                 </>
             )}
         </div>
