@@ -5,9 +5,9 @@ const {getRecipes , postRecipe , deleteRecipe ,getSingleRecipe ,getFilteredRecip
 const authenticate = require('../middleware/authentication')
 
 router.get('/' , (req, res, next) => {
-    const {mealType} = req.query
+    const {mealType ,difficulty} = req.query
 
-    if(mealType){
+    if(mealType || difficulty){
         getFilteredRecipe(req, res,next)
     }else{
         getRecipes(req,res,next)

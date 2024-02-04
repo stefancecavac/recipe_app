@@ -446,9 +446,13 @@ aside button:hover {
     border-radius: 20px;
     margin-right: 20px;
     padding: 20px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    
-  
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+ 
+}
+
+.ingridients p {
+    padding-left: 40px;
+
 }
 
 .instructions {
@@ -457,6 +461,11 @@ aside button:hover {
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.instructions p {
+    padding-left: 40px;
+
 }
 
 .login {

@@ -32,12 +32,15 @@ const getSingleRecipe = async(req , res) => {
 }
 
 const getFilteredRecipe = async(req , res) => {
-    const {mealType} = req.query
+    const {mealType ,difficulty} = req.query
 
     const filter = {}
 
     if(mealType){
         filter.mealType = mealType
+    }
+    if(difficulty){
+        filter.difficulty = difficulty
     }
 
     try{

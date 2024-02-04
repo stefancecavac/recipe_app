@@ -73,7 +73,7 @@ const RecipeDetail = () => {
                                 <h2>{singleRecipe.title}</h2>
                             </div>
                             <div className='titleDetailsMisc'>
-                               {user &&<span onClick={handleLike} style={{ color: singleRecipe.likes.includes(user._id) ? 'red' : 'white' }}><FaHeart></FaHeart></span>} 
+                                {user && <span onClick={handleLike} style={{ color: singleRecipe.likes.includes(user._id) ? 'red' : 'white' }}><FaHeart></FaHeart></span>}
 
                                 <div className='mealType'><IoRestaurantOutline></IoRestaurantOutline>  <p>{singleRecipe.mealType}</p></div>
                                 <div className='cookingTime'><IoTimeOutline></IoTimeOutline>  <p>{singleRecipe.cookingTime} min</p></div>
@@ -89,31 +89,31 @@ const RecipeDetail = () => {
                             <p>{singleRecipe.description}</p>
                         </div>
                     </div>
-                    
+
 
                     <div className='mainContent'>
 
-                    <div className='ingridients'>
-                        ingridients:
-                        {singleRecipe.ingredients.map((ingredient) => (
-                            <div key={ingredient._id}>
-                                <p>name:  &#x2022;{ingredient.name}</p>
-                                <p>qt: {ingredient.quantity}</p>
-                            </div>
-                        ))}
+                        <div className='ingridients'>
+                            <h2>Ingridients:</h2>
+                            {singleRecipe.ingredients.map((ingredient) => (
+                                <div key={ingredient._id}>
+                                    <p>name: {ingredient.name}</p>
+                                    <p>qt: {ingredient.quantity}</p>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className='instructions'>
+                            <h2>Instructions:</h2>
+                            {singleRecipe.instructions.map((instruction) => (
+                                <div key={instruction._id}>
+                                    <p>step: {instruction.step}</p>
+                                    <p>description: {instruction.description}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
-                    <div className='instructions'>
-                        instructions:
-                        {singleRecipe.instructions.map((instruction) => (
-                            <div key={instruction._id}>
-                                <p>step: {instruction.step}</p>
-                                <p>description: {instruction.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                    </div>
-                
                 </>
             )}
         </div>
