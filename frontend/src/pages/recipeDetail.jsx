@@ -21,8 +21,6 @@ const RecipeDetail = () => {
 
 
     useEffect(() => {
-
-
         const fetchRecipe = async () => {
             const response = await fetch(`http://localhost:4000/api/recipes/${recipeId}`)
             const json = await response.json()
@@ -37,6 +35,9 @@ const RecipeDetail = () => {
 
         fetchRecipe()
     }, [dispatch, recipeId,])
+
+        
+    
 
     const handleLike = async () => {
         try {
@@ -73,7 +74,8 @@ const RecipeDetail = () => {
                                 <h2>{singleRecipe.title}</h2>
                             </div>
                             <div className='titleDetailsMisc'>
-                                {user && <span onClick={handleLike} style={{ color: singleRecipe.likes.includes(user._id) ? 'red' : 'white' }}><FaHeart></FaHeart></span>}
+                                <p>Like recipe:</p>
+                                {user && <span className='like' onClick={handleLike} style={{ color: singleRecipe.likes.includes(user._id) ? 'red' : 'white' }}><FaHeart></FaHeart></span>}
 
                                 <div className='mealType'><IoRestaurantOutline></IoRestaurantOutline>  <p>{singleRecipe.mealType}</p></div>
                                 <div className='cookingTime'><IoTimeOutline></IoTimeOutline>  <p>{singleRecipe.cookingTime} min</p></div>

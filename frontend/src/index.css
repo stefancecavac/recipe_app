@@ -391,6 +391,17 @@ aside button:hover {
     align-items: center;
     justify-content: center;
 }
+.titleDetailsMisc .like{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+   margin-right: 10px;
+   border-radius: 20px;
+   border: 2px solid pink;
+   padding:2px;
+   cursor: pointer;
+}
 
 .titleDetailsMisc .mealType {
     display: flex;
